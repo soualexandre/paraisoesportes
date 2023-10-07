@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use \stdClass;
 
 class LocalSportController extends Controller
 {
@@ -24,9 +25,25 @@ class LocalSportController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        try{
+            $createSport = LocalSport::create([
+                'esprotes' => $request->esporte,
+                'rua' => $request->rua,
+                'bairro' => $request->bairro,
+                'complemento' => $request->complemento,
+                'descricao' => $request->descricao,
+            ]);
+
+            return Redirect::route('dashboard');
+        }catch(Exception $err){
+            dd('erro');
+        }
+       
+
+
+        
     }
 
     /**
