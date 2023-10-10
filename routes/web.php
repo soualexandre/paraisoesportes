@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/addsport', [LocalSportController::class, 'index'])->name('add-sport');
     Route::post('/addsport/create', [LocalSportController::class, 'create'])->name('create-sport');
+    Route::get('/localDetail/{id?}', [LocalSportController::class, 'showDetails'])->name('localdetail');
 });
 
 require __DIR__.'/auth.php';

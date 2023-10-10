@@ -22,6 +22,17 @@ class LocalSportController extends Controller
         return Inertia::render('LocalSport/AddLocalSprot');
     }
 
+        /**
+     * Display a listing of the resource.
+     */
+    public function showDetails($id)
+    {
+        return Inertia::render('LocalDatail/LocalDetail', [
+            'esporteDetail' => LocalSport::find($id),
+            'status' => session('status'),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -29,7 +40,7 @@ class LocalSportController extends Controller
     {
         try{
             $createSport = LocalSport::create([
-                'esprotes' => $request->esporte,
+                'esportes' => $request->esporte,
                 'rua' => $request->rua,
                 'bairro' => $request->bairro,
                 'complemento' => $request->complemento,

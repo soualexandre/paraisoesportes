@@ -10,10 +10,10 @@ use App\Models\LocalSport;
 class DasboardController extends Controller
 {
     public function index(Request $request){
-
         return Inertia::render('Dashboard', [
             'esportes' => LocalSport::latest()->take(10)->get()->map(function ($esportes) {
                 return [
+                    'id' => $esportes->id,
                     'local' => $esportes->esportes,
                     'rua' => $esportes->rua,
                     'bairro' => $esportes->bairro,

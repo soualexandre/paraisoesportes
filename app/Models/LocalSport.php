@@ -10,7 +10,7 @@ class LocalSport extends Model
     use HasFactory;
 
     protected $fillable = [
-        'esprotes',
+        'esportes',
         'rua',
         'bairro',
         'complemento',

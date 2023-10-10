@@ -11,7 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('local_sports', function (Blueprint $table) {
+            $table->id();
+            $table->string('esportes');
+            $table->string('rua');
+            $table->string('bairro');
+            $table->string('complemento');
+            $table->string('descricao');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**
